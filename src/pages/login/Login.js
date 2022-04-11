@@ -36,7 +36,7 @@ export default function Login() {
         />
       </label>
 
-      <button type="submit">Login</button>
+      <button className="btn">Login</button>
     </form>
   );
 }
