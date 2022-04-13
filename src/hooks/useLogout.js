@@ -10,7 +10,7 @@ export const useLogout = () => {
 
   const logout = async () => {
     setError(null);
-    isPending(true);
+    setIsPending(true);
 
     //sign user out
     try {
@@ -18,6 +18,7 @@ export const useLogout = () => {
 
       //dispatch logout action
       dispatch({ type: "LOGOUT" });
+      setIsPending(false);
 
       //update state
       if (isCancelled) {
@@ -26,7 +27,6 @@ export const useLogout = () => {
       }
     } catch (err) {
       if (!isCancelled) {
-        console.log(err.message);
         setError(err.message);
         setIsPending(false);
       }
